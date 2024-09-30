@@ -1,1 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Lato, Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.App {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    justify-content: space-between; /* Alinear los botones a la derecha */
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 70%; /* Mantiene un tamaño constante */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Estilo para el botón "Add" */
+button.addAndUpdate-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Color azul para el botón "Add" */
+    color: white;
+    cursor: pointer;
+    font-family: Lato;
+}
+
+button.addAndUpdate-button:hover {
+    background-color: #0056b3; /* Color más oscuro al pasar el mouse */
+}
+
+/* Estilo para los botones "Update" y "Delete" */
+li .button-container button {
+    padding: 10px 15px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+li .button-container button:first-child {
+    background-color: #28a745; /* Color verde para el botón "Update" */
+}
+
+li .button-container button:first-child:hover {
+    background-color: #218838; /* Color más oscuro al pasar el mouse */
+}
+
+li .button-container button:last-child {
+    background-color: #dc3545; /* Color rojo para el botón "Delete" */
+}
+
+li .button-container button:last-child:hover {
+    background-color: #c82333; /* Color más oscuro al pasar el mouse */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left; /* Alinear texto a la izquierda */
+}
+
+li {
+    background-color: #fafafa;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between; /* Espacio entre texto y botones de la lista */
+    align-items: center;
+}
+
+li .task-text {
+    flex-grow: 1; /* Hace que el texto ocupe el espacio restante */
+    margin-right: 10px; /* Espacio entre el texto y los botones */
+}
+
+li .button-container {
+    display: flex; /* Flex para los botones de editar y eliminar */
+    gap: 10px; /* Espacio entre los botones */
+}

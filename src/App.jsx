@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import './App.css';
 import TaskList from './components/TaskList';
 import TaskForm from './components/TaskForm';
 
 function App() {
     const [tasks, setTasks] = useState([]);
+    const [taskToEdit, setTaskToEdit] = useState(null);
 
     const addTask = (taskText) => {
         const newTask = { text: taskText, completed: false }; 
@@ -15,14 +17,32 @@ function App() {
         setTasks(newTasks); 
     };
 
+    const editTask = (taskIndex) => {
+        setTaskToEdit({ text: tasks[taskIndex].text, index: taskIndex });
+    };
+
+    const updateTask = (taskIndex, newText) => {
+        const updatedTasks = tasks.map((task, index) =>
+            index === taskIndex ? { ...task, text: newText } : task
+        );
+        setTasks(updatedTasks);
+        setTaskToEdit(null); // Limpiamos la tarea que se está editando
+    };
+    
     return (
         <div className="App">
-        <h1>Todo List</h1>
-        {/* Renderiza el formulario para agregar tareas */}
-        <TaskForm addTask={addTask} />
-        
-        {/* Renderiza la lista de tareas, pasándole las tareas y la función para eliminarlas */}
-        <TaskList tasks={tasks} deleteTask={deleteTask} />
+            <h1>Todo List</h1>
+            <TaskForm 
+                addTask={addTask} 
+                updateTask={updateTask}
+                taskToEdit={taskToEdit}
+            />
+
+            <TaskList 
+                tasks={tasks} 
+                deleteTask={deleteTask} 
+                editTask={editTask} 
+            />
         </div>
     );
 }

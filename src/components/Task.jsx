@@ -1,10 +1,13 @@
 import React from 'react';
 
-function Task({ task, index, deleteTask }) {
+function Task({ task, index, deleteTask, editTask }) {
     return (
         <li>
-        {task.text}  {/* Muestra el texto de la tarea */}
-        <button onClick={() => deleteTask(index)}>Eliminar</button>  {/* Botón para eliminar la tarea */}
+            <span className="task-text">{task.text}</span>
+            <div className="button-container">
+                <button className="update-button" onClick={() => editTask(index)}>Update</button> 
+                <button onClick={() => deleteTask(index)}>Delete</button>
+            </div>
         </li>
     );
 }
